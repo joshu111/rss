@@ -18,36 +18,36 @@ class NetworkManager {
     
     private init() {}
     
-    func getAlbums(limit: Int = 10, completed: @escaping (DataRoot?, String?) -> Void) {
+    func getAlbums(limit: Int = 10, completed: @escaping (Result<DataRoot, RSSError>) -> Void) {
         let endpoint = baseURL + "/\(region)/\(media)/\(feed)/\(genre)/\(limit)/\(explicit)"
         
         guard let url = URL(string: endpoint) else {
-            completed(nil, "Invalid URL")
+            completed(.failure(.urlInvalid))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let _ = error {
-                completed(nil, "Check Internet Connection")
+                completed(.failure(.unableToComplete))
                 return
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil , "Invalid Response")
+                completed(.failure(.invalideResponse))
                 return
             }
             
             guard let data = data else {
-                completed(nil, "Invalid data")
+                completed(.failure(.invalidData))
                 return
             }
                         
             do {
                 let decoder = JSONDecoder()
                 let dataRoot = try decoder.decode(DataRoot.self, from: data)
-                completed( dataRoot, nil)
+                completed(.success(dataRoot))
             } catch {
-                completed(nil, "Can not decode")
+                completed(.failure(.cannotDecode))
             }
             
         }

@@ -14,13 +14,13 @@ class AlbumsListVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBlue
-        NetworkManager.shared.getAlbums { (albums, error) in
-            guard let albums = albums else {
-                self.presentRSSAlertOnMainThread(title: "Error occured", message: error!, buttinTitle: "OK")
-                return
+        NetworkManager.shared.getAlbums { result in
+            switch result {
+                case.success(let dataRoot):
+                    print(dataRoot.feed.results)
+                case.failure(let error):
+                    self.presentRSSAlertOnMainThread(title: "Error occured", message: error.rawValue, buttinTitle: "OK")
             }
-            
-            print(albums.feed.results)
         }
     }
 

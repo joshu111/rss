@@ -7,7 +7,7 @@
 //
 
 import Foundation
-// MARK: - Genre
+
 struct Genre: Codable {
     let name: String
     let url: String

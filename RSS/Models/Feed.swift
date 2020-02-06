@@ -7,7 +7,7 @@
 //
 
 import Foundation
-// MARK: - Feed
+
 struct Feed: Codable {
     let title: String
     let results: [Album]

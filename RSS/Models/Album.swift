@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Result
+
 struct Album: Codable {
     let artistName, releaseDate, name: String
     let copyright: String

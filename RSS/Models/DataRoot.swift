@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - Welcome
 struct DataRoot: Codable {
     let feed: Feed
 }
