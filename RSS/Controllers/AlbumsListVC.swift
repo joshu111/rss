@@ -14,7 +14,8 @@ class AlbumsListVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBlue
-        NetworkManager.shared.getAlbums { result in
+        NetworkManager.shared.getAlbums { [weak self] result in
+            guard let self = self else { return }
             switch result {
                 case.success(let dataRoot):
                     print(dataRoot.feed.results)
