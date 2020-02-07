@@ -29,7 +29,7 @@ class AlbumCell: UITableViewCell {
     func set(album: Album) {
         albumName.text  = album.name
         artistName.text = album.artistName
-        albumArtwork.downloadImage(from: album.artworkUrl100)
+        albumArtwork.getImage(from: album.artworkUrl100)
     }
     
     private func configure() {
