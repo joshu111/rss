@@ -25,6 +25,8 @@
 		89D0FD7C23EBAC7500C27ADA /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7B23EBAC7500C27ADA /* ErrorMessage.swift */; };
 		89D0FD8023EBBB6200C27ADA /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7F23EBBB6200C27ADA /* AlbumCell.swift */; };
 		89D0FD8223EBBD5700C27ADA /* RSSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */; };
+		89D0FD8423ED1A2C00C27ADA /* AlbumInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */; };
+		89D0FD8823EDFBF000C27ADA /* RSSLoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		89D0FD7B23EBAC7500C27ADA /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		89D0FD7F23EBBB6200C27ADA /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSImageView.swift; sourceTree = "<group>"; };
+		89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoVC.swift; sourceTree = "<group>"; };
+		89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSLoadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				8930A40E23E7CC4E0076D8D9 /* AlbumsListVC.swift */,
+				89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				8930A41A23E7E1970076D8D9 /* RSSAlertVC.swift */,
 				89D0FD7F23EBBB6200C27ADA /* AlbumCell.swift */,
 				89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */,
+				89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,11 +236,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D0FD7C23EBAC7500C27ADA /* ErrorMessage.swift in Sources */,
+				89D0FD8423ED1A2C00C27ADA /* AlbumInfoVC.swift in Sources */,
 				8930A41723E7DED50076D8D9 /* RSSTitleLabel.swift in Sources */,
 				89D0FD8023EBBB6200C27ADA /* AlbumCell.swift in Sources */,
 				89D0FD8223EBBD5700C27ADA /* RSSImageView.swift in Sources */,
 				89D0FD7723EA769A00C27ADA /* Feed.swift in Sources */,
 				8930A3FB23E7C2DA0076D8D9 /* AppDelegate.swift in Sources */,
+				89D0FD8823EDFBF000C27ADA /* RSSLoadingScreen.swift in Sources */,
 				8930A42523E901930076D8D9 /* NetworkManager.swift in Sources */,
 				89D0FD7523EA762300C27ADA /* Genre.swift in Sources */,
 				8930A40F23E7CC4E0076D8D9 /* AlbumsListVC.swift in Sources */,

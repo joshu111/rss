@@ -20,7 +20,7 @@ class NetworkManager {
     
     private init() {}
     
-    func getAlbums(limit: Int = 10, completed: @escaping (Result<DataRoot, RSSError>) -> Void) {
+    func getAlbums(limit: Int = 100, completed: @escaping (Result<DataRoot, RSSError>) -> Void) {
         let endpoint = baseURL + "/\(region)/\(media)/\(feed)/\(genre)/\(limit)/\(explicit)"
         
         guard let url = URL(string: endpoint) else {

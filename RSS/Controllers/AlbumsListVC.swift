@@ -40,11 +40,15 @@ class AlbumsListVC: UIViewController {
     }
     
     func getAlbumsList() {
+        let loadingScreen = RSSLoadingScreen(frame: view.bounds)
+        view.addSubview(loadingScreen)
         NetworkManager.shared.getAlbums { [weak self] result in
+            DispatchQueue.main.async {
+                loadingScreen.removeFromSuperview()
+            }
             guard let self = self else { return }
             switch result {
                 case.success(let dataRoot):
-//                    print(dataRoot.feed.results) // todo remove
                     self.albums = dataRoot.feed.results
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -68,5 +72,12 @@ extension AlbumsListVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let album = albums[indexPath.row]
+        let destVC = AlbumInfoVC()
+        destVC.album = album
+        destVC.title = album.name
+        navigationController?.pushViewController(destVC, animated: true)
+    }
     
 }
