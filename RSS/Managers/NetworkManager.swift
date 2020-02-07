@@ -6,9 +6,11 @@
 //  Copyright © 2020 Joshu Sonawane. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class NetworkManager {
     static let shared = NetworkManager()
+    let cache    = NSCache<NSString, UIImage>()
+    
     let baseURL  = "https://rss.itunes.apple.com/api/v1"
     let region   = "us"
     let media    = "apple-music"
@@ -49,11 +51,8 @@ class NetworkManager {
             } catch {
                 completed(.failure(.cannotDecode))
             }
-            
         }
-        
         task.resume()
-        
     }
    				
 }
