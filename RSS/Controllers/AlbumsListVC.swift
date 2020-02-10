@@ -74,9 +74,7 @@ extension AlbumsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let album = albums[indexPath.row]
-        let destVC = AlbumInfoVC()
-        destVC.album = album
-        destVC.title = album.name
+        let destVC = AlbumInfoVC(album: album)
         navigationController?.pushViewController(destVC, animated: true)
     }
     

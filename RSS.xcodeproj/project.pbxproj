@@ -27,6 +27,11 @@
 		89D0FD8223EBBD5700C27ADA /* RSSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */; };
 		89D0FD8423ED1A2C00C27ADA /* AlbumInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */; };
 		89D0FD8823EDFBF000C27ADA /* RSSLoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */; };
+		89D0FD8A23F0B45D00C27ADA /* RSSInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8923F0B45D00C27ADA /* RSSInfoBlock.swift */; };
+		89D0FD8C23F0B9FF00C27ADA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8B23F0B9FF00C27ADA /* constants.swift */; };
+		89D0FD8E23F0CAF400C27ADA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */; };
+		89D0FD9023F0CB0700C27ADA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */; };
+		89D0FD9223F0D01A00C27ADA /* GenreFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSImageView.swift; sourceTree = "<group>"; };
 		89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoVC.swift; sourceTree = "<group>"; };
 		89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSLoadingScreen.swift; sourceTree = "<group>"; };
+		89D0FD8923F0B45D00C27ADA /* RSSInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSInfoBlock.swift; sourceTree = "<group>"; };
+		89D0FD8B23F0B9FF00C27ADA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,7 @@
 				89D0FD7F23EBBB6200C27ADA /* AlbumCell.swift */,
 				89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */,
 				89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */,
+				89D0FD8923F0B45D00C27ADA /* RSSInfoBlock.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				8930A41D23E7E9FD0076D8D9 /* UIViewController+Extension.swift */,
+				89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */,
+				89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				89D0FD7B23EBAC7500C27ADA /* ErrorMessage.swift */,
+				89D0FD8B23F0B9FF00C27ADA /* constants.swift */,
+				89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -238,12 +253,17 @@
 				89D0FD7C23EBAC7500C27ADA /* ErrorMessage.swift in Sources */,
 				89D0FD8423ED1A2C00C27ADA /* AlbumInfoVC.swift in Sources */,
 				8930A41723E7DED50076D8D9 /* RSSTitleLabel.swift in Sources */,
+				89D0FD8C23F0B9FF00C27ADA /* constants.swift in Sources */,
+				89D0FD8A23F0B45D00C27ADA /* RSSInfoBlock.swift in Sources */,
 				89D0FD8023EBBB6200C27ADA /* AlbumCell.swift in Sources */,
 				89D0FD8223EBBD5700C27ADA /* RSSImageView.swift in Sources */,
 				89D0FD7723EA769A00C27ADA /* Feed.swift in Sources */,
 				8930A3FB23E7C2DA0076D8D9 /* AppDelegate.swift in Sources */,
 				89D0FD8823EDFBF000C27ADA /* RSSLoadingScreen.swift in Sources */,
 				8930A42523E901930076D8D9 /* NetworkManager.swift in Sources */,
+				89D0FD8E23F0CAF400C27ADA /* Date+Extension.swift in Sources */,
+				89D0FD9023F0CB0700C27ADA /* String+Extension.swift in Sources */,
+				89D0FD9223F0D01A00C27ADA /* GenreFormatter.swift in Sources */,
 				89D0FD7523EA762300C27ADA /* Genre.swift in Sources */,
 				8930A40F23E7CC4E0076D8D9 /* AlbumsListVC.swift in Sources */,
 				8930A42023E8FB460076D8D9 /* Album.swift in Sources */,

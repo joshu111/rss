@@ -29,7 +29,7 @@ class RSSButton: UIButton {
     private func configure() {
         layer.cornerRadius      = 9
         setTitleColor(.white, for: .normal)
-        titleLabel?.font        = UIFont.preferredFont(forTextStyle: .headline)
+        titleLabel?.font        = UIFont.preferredFont(forTextStyle: .title1)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
