@@ -54,7 +54,7 @@ class AlbumsListVC: UIViewController {
                         self.tableView.reloadData()
                     }
                 case.failure(let error):
-                    self.presentRSSAlertOnMainThread(title: "Error occured", message: error.rawValue, buttinTitle: "OK")
+                    self.presentRSSAlertOnMainThread(title: "Error occured", message: error.rawValue, buttonTitle: "OK")
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AlbumInfoVC: UIViewController {
 
@@ -22,6 +23,7 @@ class AlbumInfoVC: UIViewController {
     let copyRightView   = RSSInfoBlock(frame: .zero)
     let genreView       = RSSInfoBlock(frame: .zero)
     let storeLink       = RSSButton(backgroundColor: .systemRed, title: "Store Link")
+    var urlString       = ""
     
     init(album: Album){
         super.init(nibName: nil, bundle: nil)
@@ -36,10 +38,10 @@ class AlbumInfoVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         guard let album = album else {
-            self.presentRSSAlertOnMainThread(title: "Error", message: "Album not found or invalid", buttinTitle: "OK")
+            self.presentRSSAlertOnMainThread(title: "Error", message: "Album not found or invalid", buttonTitle: "OK")
             return
         }
-        
+        urlString = album.url
         configureLayout()
         setAlbum(album: album)
     }
@@ -49,6 +51,26 @@ class AlbumInfoVC: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
     }
 
+    func setAlbum(album: Album) {
+        albumArtwork.getImage(from: album.artworkUrl100)
+        albumName.text = album.name
+        artistNameView.set(infoType: .artistName, value: album.artistName)
+        copyRightView.set(infoType: .copyright, value: album.copyright)
+        releaseDateView.set(infoType: .releaseDate, value: album.releaseDate.convertToDisplay())
+        let genreList = GenreFormatter.shared.genreNameList(genres: album.genres)
+        genreView.set(infoType: .genre, value: genreList)
+        storeLink.addTarget(self, action: #selector(storeLinkTapped), for: .touchUpInside)
+    }
+    
+    @objc func storeLinkTapped() {
+        guard let url = URL(string: urlString) else {
+            self.presentRSSAlertOnMainThread(title: "Error", message: "Invalid URL", buttonTitle: "OK")
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
+    }
+    
     func configureLayout() {
         view.addSubview(albumArtwork)
         view.addSubview(albumName)
@@ -88,15 +110,4 @@ class AlbumInfoVC: UIViewController {
         }
         
     }
-    
-    func setAlbum(album: Album) {
-        albumArtwork.getImage(from: album.artworkUrl100)
-        albumName.text = album.name
-        artistNameView.set(infoType: .artistName, value: album.artistName)
-        copyRightView.set(infoType: .copyright, value: album.copyright)
-        releaseDateView.set(infoType: .releaseDate, value: album.releaseDate.convertToDisplay())
-        let genreList = GenreFormatter.shared.genreNameList(genres: album.genres) 
-        genreView.set(infoType: .genre, value: genreList)
-    }
-
 }

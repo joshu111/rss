@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIViewController {
-    func presentRSSAlertOnMainThread(title: String, message: String, buttinTitle: String) {
+    func presentRSSAlertOnMainThread(title: String, message: String, buttonTitle: String) {
         DispatchQueue.main.async {
-            let alertVC = RSSAlertVC(title: title, message: message, buttonTitle: buttinTitle)
+            let alertVC = RSSAlertVC(title: title, message: message, buttonTitle: buttonTitle)
             alertVC.modalPresentationStyle  = .overFullScreen
             alertVC.modalTransitionStyle    = .crossDissolve
             self.present(alertVC, animated: true, completion: nil)
