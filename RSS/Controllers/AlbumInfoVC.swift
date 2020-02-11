@@ -79,13 +79,15 @@ class AlbumInfoVC: UIViewController {
         albumArtwork.translatesAutoresizingMaskIntoConstraints = false
         albumName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            albumArtwork.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding*3),
-            albumArtwork.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding*3),
-            albumArtwork.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            albumArtwork.heightAnchor.constraint(equalTo: albumArtwork.widthAnchor),
+            albumName.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: padding),
+            albumName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            albumName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            albumName.heightAnchor.constraint(equalToConstant: padding),
             
-            albumName.topAnchor.constraint(equalTo: albumArtwork.bottomAnchor, constant: padding),
-            albumName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            albumArtwork.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
+            albumArtwork.bottomAnchor.constraint(equalTo: albumName.topAnchor, constant: -padding),
+            albumArtwork.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            albumArtwork.widthAnchor.constraint(equalTo: albumArtwork.heightAnchor),
             
             storeLink.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             storeLink.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
