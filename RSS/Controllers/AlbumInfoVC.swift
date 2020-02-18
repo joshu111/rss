@@ -7,23 +7,20 @@
 //
 
 import UIKit
-import SafariServices
+
+protocol AlbumInfoVCDelegate {
+    func didTapStoreLink(urlString: String)
+}
 
 class AlbumInfoVC: UIViewController {
 
     var album: Album?  = nil
     var genre: [Genre] = []
     let padding: CGFloat = 20
-    var itemViews: [UIView] = []
+    let bottomView = UIView()
     
     let albumName       = RSSTitleLabel(textAlignment: .center, fontSize: 18, weight: .bold)
     let albumArtwork    = RSSImageView(frame: .zero)
-    let artistNameView  = RSSInfoBlock(frame: .zero)
-    let releaseDateView = RSSInfoBlock(frame: .zero)
-    let copyRightView   = RSSInfoBlock(frame: .zero)
-    let genreView       = RSSInfoBlock(frame: .zero)
-    let storeLink       = RSSButton(backgroundColor: .systemRed, title: "Store Link")
-    var urlString       = ""
     
     init(album: Album){
         super.init(nibName: nil, bundle: nil)
@@ -41,43 +38,36 @@ class AlbumInfoVC: UIViewController {
             self.presentRSSAlertOnMainThread(title: "Error", message: "Album not found or invalid", buttonTitle: "OK")
             return
         }
-        urlString = album.url
         configureLayout()
-        setAlbum(album: album)
+        albumArtwork.getImage(from: album.artworkUrl100)
+        albumName.text = album.name
+        let bottomInfoVC = AlbumInfoBottomVC(album: album)
+        bottomInfoVC.delegate = self
+        self.add(childVC: bottomInfoVC, to: self.bottomView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = album?.name
         self.navigationItem.largeTitleDisplayMode = .never
     }
-
-    func setAlbum(album: Album) {
-        albumArtwork.getImage(from: album.artworkUrl100)
-        albumName.text = album.name
-        artistNameView.set(infoType: .artistName, value: album.artistName)
-        copyRightView.set(infoType: .copyright, value: album.copyright)
-        releaseDateView.set(infoType: .releaseDate, value: album.releaseDate.convertToDisplay())
-        let genreList = GenreFormatter.shared.genreNameList(genres: album.genres)
-        genreView.set(infoType: .genre, value: genreList)
-        storeLink.addTarget(self, action: #selector(storeLinkTapped), for: .touchUpInside)
+    
+    func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view)
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self)
     }
     
-    @objc func storeLinkTapped() {
-        guard let url = URL(string: urlString) else {
-            self.presentRSSAlertOnMainThread(title: "Error", message: "Invalid URL", buttonTitle: "OK")
-            return
-        }
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true)
-    }
     
     func configureLayout() {
         view.addSubview(albumArtwork)
         view.addSubview(albumName)
-        view.addSubview(storeLink)
+        view.addSubview(bottomView)
         
         albumArtwork.translatesAutoresizingMaskIntoConstraints = false
         albumName.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             albumName.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: padding),
             albumName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
@@ -89,27 +79,11 @@ class AlbumInfoVC: UIViewController {
             albumArtwork.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             albumArtwork.widthAnchor.constraint(equalTo: albumArtwork.heightAnchor),
             
-            storeLink.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            storeLink.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            storeLink.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
+            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            bottomView.topAnchor.constraint(equalTo: albumName.bottomAnchor, constant: padding/2),
+            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding)
+
         ])
-        
-        itemViews = [artistNameView, releaseDateView, genreView, copyRightView]
-        for (index,itemView) in itemViews.enumerated() {
-            view.addSubview(itemView)
-            itemView.translatesAutoresizingMaskIntoConstraints  = false
-            itemView.backgroundColor = .systemGray6
-            if index == 0 {
-                NSLayoutConstraint.activate([itemView.topAnchor.constraint(equalTo: albumName.bottomAnchor, constant: padding/2)])
-            } else {
-                NSLayoutConstraint.activate([itemView.topAnchor.constraint(equalTo: itemViews[index - 1].bottomAnchor, constant: padding/2)])
-            }
-            NSLayoutConstraint.activate([
-                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-                itemView.heightAnchor.constraint(equalToConstant: padding*2)
-            ])
-        }
-        
     }
 }

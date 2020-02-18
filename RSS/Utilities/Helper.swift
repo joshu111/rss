@@ -1,15 +1,15 @@
 //
-//  GenreFormatter.swift
+//  Helper.swift
 //  RSS
 //
 //  Created by Joshu Sonawane on 2/9/20.
 //  Copyright © 2020 Joshu Sonawane. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class GenreFormatter {
-    static let shared = GenreFormatter()
+class Helper {
+    static let shared = Helper()
     
     func genreNameList(genres : [Genre]) -> String {
         var genreList = ""
@@ -21,5 +21,12 @@ class GenreFormatter {
             }
         }
         return genreList
+    }
+    
+    func setConstaint(constraints: [NSLayoutConstraint], level: Float = 999) {
+        for constraint in constraints {
+            constraint.priority = UILayoutPriority(rawValue: level)
+            constraint.isActive = true
+        }
     }
 }

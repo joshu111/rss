@@ -29,6 +29,7 @@ class RSSInfoBlock: UIView {
     }
     
     private func configure() {
+        backgroundColor = .systemGray5
         layer.cornerRadius = 9
         addSubview(symbolImageView)
         addSubview(titleLabel)
@@ -37,11 +38,11 @@ class RSSInfoBlock: UIView {
         symbolImageView.contentMode = .scaleToFill
         symbolImageView.tintColor   = .label
         
-        NSLayoutConstraint.activate([
+        Helper.shared.setConstaint(constraints: [
             symbolImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-            symbolImageView.widthAnchor.constraint(equalToConstant: padding*2),
             symbolImageView.heightAnchor.constraint(equalToConstant: padding*2),
+            symbolImageView.widthAnchor.constraint(equalToConstant: padding*2),
             
             titleLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: symbolImageView.trailingAnchor, constant: padding),
@@ -52,8 +53,8 @@ class RSSInfoBlock: UIView {
             valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 9),
             valueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             valueLabel.heightAnchor.constraint(equalToConstant: padding*2)
-            
         ])
+        
     }
     
     func set(infoType: InfoType, value: String) {

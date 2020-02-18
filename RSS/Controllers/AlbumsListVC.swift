@@ -66,10 +66,13 @@ extension AlbumsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.reuseID) as! AlbumCell
-        let album = albums[indexPath.row]
-        cell.set(album: album)
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.reuseID) as? AlbumCell{
+            let album = albums[indexPath.row]
+            cell.set(album: album)
+            return cell
+
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

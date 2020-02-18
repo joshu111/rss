@@ -19,6 +19,9 @@
 		8930A41E23E7E9FD0076D8D9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A41D23E7E9FD0076D8D9 /* UIViewController+Extension.swift */; };
 		8930A42023E8FB460076D8D9 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A41F23E8FB460076D8D9 /* Album.swift */; };
 		8930A42523E901930076D8D9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8930A42423E901930076D8D9 /* NetworkManager.swift */; };
+		897F79E223F2593700C16F61 /* RSSAlbumDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E123F2593700C16F61 /* RSSAlbumDetailVC.swift */; };
+		897F79E423F25E9900C16F61 /* AlbumInfoBottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E323F25E9900C16F61 /* AlbumInfoBottomVC.swift */; };
+		897F79E823F64D8B00C16F61 /* AlbumInfoVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E723F64D8B00C16F61 /* AlbumInfoVC+Extension.swift */; };
 		89D0FD7523EA762300C27ADA /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7423EA762300C27ADA /* Genre.swift */; };
 		89D0FD7723EA769A00C27ADA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7623EA769A00C27ADA /* Feed.swift */; };
 		89D0FD7923EA76F300C27ADA /* DataRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7823EA76F300C27ADA /* DataRoot.swift */; };
@@ -31,7 +34,7 @@
 		89D0FD8C23F0B9FF00C27ADA /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8B23F0B9FF00C27ADA /* constants.swift */; };
 		89D0FD8E23F0CAF400C27ADA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */; };
 		89D0FD9023F0CB0700C27ADA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */; };
-		89D0FD9223F0D01A00C27ADA /* GenreFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */; };
+		89D0FD9223F0D01A00C27ADA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD9123F0D01A00C27ADA /* Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		8930A41D23E7E9FD0076D8D9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8930A41F23E8FB460076D8D9 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8930A42423E901930076D8D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		897F79E123F2593700C16F61 /* RSSAlbumDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSAlbumDetailVC.swift; sourceTree = "<group>"; };
+		897F79E323F25E9900C16F61 /* AlbumInfoBottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoBottomVC.swift; sourceTree = "<group>"; };
+		897F79E723F64D8B00C16F61 /* AlbumInfoVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumInfoVC+Extension.swift"; sourceTree = "<group>"; };
 		89D0FD7423EA762300C27ADA /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		89D0FD7623EA769A00C27ADA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		89D0FD7823EA76F300C27ADA /* DataRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRoot.swift; sourceTree = "<group>"; };
@@ -61,7 +67,7 @@
 		89D0FD8B23F0B9FF00C27ADA /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFormatter.swift; sourceTree = "<group>"; };
+		89D0FD9123F0D01A00C27ADA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 			children = (
 				8930A40E23E7CC4E0076D8D9 /* AlbumsListVC.swift */,
 				89D0FD8323ED1A2C00C27ADA /* AlbumInfoVC.swift */,
+				897F79E323F25E9900C16F61 /* AlbumInfoBottomVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,6 +144,7 @@
 				89D0FD8123EBBD5700C27ADA /* RSSImageView.swift */,
 				89D0FD8723EDFBF000C27ADA /* RSSLoadingScreen.swift */,
 				89D0FD8923F0B45D00C27ADA /* RSSInfoBlock.swift */,
+				897F79E123F2593700C16F61 /* RSSAlbumDetailVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				8930A41D23E7E9FD0076D8D9 /* UIViewController+Extension.swift */,
 				89D0FD8D23F0CAF400C27ADA /* Date+Extension.swift */,
 				89D0FD8F23F0CB0700C27ADA /* String+Extension.swift */,
+				897F79E723F64D8B00C16F61 /* AlbumInfoVC+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,7 +184,7 @@
 			children = (
 				89D0FD7B23EBAC7500C27ADA /* ErrorMessage.swift */,
 				89D0FD8B23F0B9FF00C27ADA /* constants.swift */,
-				89D0FD9123F0D01A00C27ADA /* GenreFormatter.swift */,
+				89D0FD9123F0D01A00C27ADA /* Helper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -258,12 +267,14 @@
 				89D0FD8023EBBB6200C27ADA /* AlbumCell.swift in Sources */,
 				89D0FD8223EBBD5700C27ADA /* RSSImageView.swift in Sources */,
 				89D0FD7723EA769A00C27ADA /* Feed.swift in Sources */,
+				897F79E223F2593700C16F61 /* RSSAlbumDetailVC.swift in Sources */,
 				8930A3FB23E7C2DA0076D8D9 /* AppDelegate.swift in Sources */,
+				897F79E423F25E9900C16F61 /* AlbumInfoBottomVC.swift in Sources */,
 				89D0FD8823EDFBF000C27ADA /* RSSLoadingScreen.swift in Sources */,
 				8930A42523E901930076D8D9 /* NetworkManager.swift in Sources */,
 				89D0FD8E23F0CAF400C27ADA /* Date+Extension.swift in Sources */,
 				89D0FD9023F0CB0700C27ADA /* String+Extension.swift in Sources */,
-				89D0FD9223F0D01A00C27ADA /* GenreFormatter.swift in Sources */,
+				89D0FD9223F0D01A00C27ADA /* Helper.swift in Sources */,
 				89D0FD7523EA762300C27ADA /* Genre.swift in Sources */,
 				8930A40F23E7CC4E0076D8D9 /* AlbumsListVC.swift in Sources */,
 				8930A42023E8FB460076D8D9 /* Album.swift in Sources */,
@@ -272,6 +283,7 @@
 				8930A41E23E7E9FD0076D8D9 /* UIViewController+Extension.swift in Sources */,
 				8930A41523E7D3EE0076D8D9 /* RSSButton.swift in Sources */,
 				8930A41B23E7E1970076D8D9 /* RSSAlertVC.swift in Sources */,
+				897F79E823F64D8B00C16F61 /* AlbumInfoVC+Extension.swift in Sources */,
 				8930A3FD23E7C2DA0076D8D9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
