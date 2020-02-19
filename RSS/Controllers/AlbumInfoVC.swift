@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol AlbumInfoVCDelegate {
-    func didTapStoreLink(urlString: String)
-}
-
 class AlbumInfoVC: UIViewController {
 
     var album: Album?  = nil
@@ -41,8 +37,7 @@ class AlbumInfoVC: UIViewController {
         configureLayout()
         albumArtwork.getImage(from: album.artworkUrl100)
         albumName.text = album.name
-        let bottomInfoVC = AlbumInfoBottomVC(album: album)
-        bottomInfoVC.delegate = self
+        let bottomInfoVC = AlbumInfoBottomVC(album: album, delegate: self)
         self.add(childVC: bottomInfoVC, to: self.bottomView)
     }
     

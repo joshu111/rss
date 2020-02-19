@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-extension AlbumInfoVC: AlbumInfoVCDelegate {
+extension AlbumInfoVC: AlbumInfoBottomVCDelegate {
     func didTapStoreLink(urlString: String) {
         guard let url = URL(string: urlString) else {
             self.presentRSSAlertOnMainThread(title: "Error", message: "Invalid URL", buttonTitle: "OK")
@@ -18,6 +18,4 @@ extension AlbumInfoVC: AlbumInfoVCDelegate {
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true)
     }
-    
-    
 }

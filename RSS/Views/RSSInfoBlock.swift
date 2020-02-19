@@ -34,12 +34,14 @@ class RSSInfoBlock: UIView {
         addSubview(symbolImageView)
         addSubview(titleLabel)
         addSubview(valueLabel)
+        valueLabel.adjustsFontSizeToFitWidth = true
+        valueLabel.adjustsFontForContentSizeCategory = true
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         symbolImageView.contentMode = .scaleToFill
         symbolImageView.tintColor   = .label
         
         Helper.shared.setConstaint(constraints: [
-            symbolImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            symbolImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: padding),
             symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             symbolImageView.heightAnchor.constraint(equalToConstant: padding*2),
             symbolImageView.widthAnchor.constraint(equalToConstant: padding*2),
@@ -49,9 +51,9 @@ class RSSInfoBlock: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -padding*6),
             titleLabel.heightAnchor.constraint(equalToConstant: padding*2),
             
-            valueLabel.centerYAnchor.constraint(equalTo: symbolImageView.centerYAnchor),
-            valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 9),
+            valueLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             valueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            valueLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: padding),
             valueLabel.heightAnchor.constraint(equalToConstant: padding*2)
         ])
         

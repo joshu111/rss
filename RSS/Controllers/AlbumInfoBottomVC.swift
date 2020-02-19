@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol AlbumInfoBottomVCDelegate {
+    func didTapStoreLink(urlString: String)
+}
+
 class AlbumInfoBottomVC: RSSAlbumDetailVC {
     
     var album: Album?  = nil
-    var delegate: AlbumInfoVCDelegate?
+    var delegate: AlbumInfoBottomVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +27,10 @@ class AlbumInfoBottomVC: RSSAlbumDetailVC {
         setAlbum(album: album)
     }
     
-    init(album: Album){
+    init(album: Album, delegate: AlbumInfoBottomVCDelegate){
         super.init(nibName: nil, bundle: nil)
         self.album = album
+        self.delegate = delegate
 
     }
     
