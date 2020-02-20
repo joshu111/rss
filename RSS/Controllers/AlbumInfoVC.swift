@@ -14,6 +14,8 @@ class AlbumInfoVC: UIViewController {
     var genre: [Genre] = []
     let padding: CGFloat = 20
     let bottomView = UIView()
+    let speechService = SpeechService()
+    let speechButton  = RSSButton(backgroundColor: .systemOrange, title: "Speech")
     
     let albumName       = RSSTitleLabel(textAlignment: .center, fontSize: 18, weight: .bold)
     let albumArtwork    = RSSImageView(frame: .zero)
@@ -39,9 +41,16 @@ class AlbumInfoVC: UIViewController {
         albumName.text = album.name
         let bottomInfoVC = AlbumInfoBottomVC(album: album, delegate: self)
         self.add(childVC: bottomInfoVC, to: self.bottomView)
+        speechButton.addTarget(self, action: #selector(speakNextSpeed), for: .touchUpInside)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        speechService.stopPlaying()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.title = album?.name
         self.navigationItem.largeTitleDisplayMode = .never
     }
@@ -53,11 +62,17 @@ class AlbumInfoVC: UIViewController {
         childVC.didMove(toParent: self)
     }
     
+    @objc func speakNextSpeed() {
+        guard let album = album else { return }
+        speechService.changeRate()
+        speechService.say("Album is\(String(describing: album.name)) and artist is \(String(describing: album.artistName))")
+    }
     
     func configureLayout() {
         view.addSubview(albumArtwork)
         view.addSubview(albumName)
         view.addSubview(bottomView)
+        view.addSubview(speechButton)
         
         albumArtwork.translatesAutoresizingMaskIntoConstraints = false
         albumName.translatesAutoresizingMaskIntoConstraints = false
@@ -74,10 +89,14 @@ class AlbumInfoVC: UIViewController {
             albumArtwork.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             albumArtwork.widthAnchor.constraint(equalTo: albumArtwork.heightAnchor),
             
+            speechButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+            speechButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            speechButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bottomView.topAnchor.constraint(equalTo: albumName.bottomAnchor, constant: padding/2),
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding)
+            bottomView.bottomAnchor.constraint(equalTo: speechButton.topAnchor, constant: -padding)
 
         ])
     }

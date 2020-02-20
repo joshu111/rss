@@ -30,6 +30,15 @@ class AlbumCell: UITableViewCell {
         albumName.text  = album.name
         artistName.text = album.artistName
         albumArtwork.getImage(from: album.artworkUrl100)
+        albumArtwork.isAccessibilityElement = true
+        albumArtwork.accessibilityHint      = "Album Artwork Image"
+
+        albumName.isAccessibilityElement    = true
+        albumName.accessibilityHint         = "Name of the Album is \(album.name)"
+
+        artistName.isAccessibilityElement   = true
+        artistName.accessibilityHint        = "Name of the artist"
+        artistName.accessibilityValue       = "Artist is \(album.artistName)"
     }
     
     private func configure() {

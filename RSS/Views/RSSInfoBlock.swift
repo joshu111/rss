@@ -54,7 +54,7 @@ class RSSInfoBlock: UIView {
             valueLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             valueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             valueLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: padding),
-            valueLabel.heightAnchor.constraint(equalToConstant: padding*2)
+            valueLabel.heightAnchor.constraint(equalToConstant: padding)
         ])
         
     }

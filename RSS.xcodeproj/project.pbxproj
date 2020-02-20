@@ -22,6 +22,7 @@
 		897F79E223F2593700C16F61 /* RSSAlbumDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E123F2593700C16F61 /* RSSAlbumDetailVC.swift */; };
 		897F79E423F25E9900C16F61 /* AlbumInfoBottomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E323F25E9900C16F61 /* AlbumInfoBottomVC.swift */; };
 		897F79E823F64D8B00C16F61 /* AlbumInfoVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E723F64D8B00C16F61 /* AlbumInfoVC+Extension.swift */; };
+		897F79EA23FCD95600C16F61 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897F79E923FCD95600C16F61 /* SpeechService.swift */; };
 		89D0FD7523EA762300C27ADA /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7423EA762300C27ADA /* Genre.swift */; };
 		89D0FD7723EA769A00C27ADA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7623EA769A00C27ADA /* Feed.swift */; };
 		89D0FD7923EA76F300C27ADA /* DataRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D0FD7823EA76F300C27ADA /* DataRoot.swift */; };
@@ -55,6 +56,7 @@
 		897F79E123F2593700C16F61 /* RSSAlbumDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSAlbumDetailVC.swift; sourceTree = "<group>"; };
 		897F79E323F25E9900C16F61 /* AlbumInfoBottomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfoBottomVC.swift; sourceTree = "<group>"; };
 		897F79E723F64D8B00C16F61 /* AlbumInfoVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumInfoVC+Extension.swift"; sourceTree = "<group>"; };
+		897F79E923FCD95600C16F61 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		89D0FD7423EA762300C27ADA /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		89D0FD7623EA769A00C27ADA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		89D0FD7823EA76F300C27ADA /* DataRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRoot.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				89D0FD7B23EBAC7500C27ADA /* ErrorMessage.swift */,
 				89D0FD8B23F0B9FF00C27ADA /* constants.swift */,
 				89D0FD9123F0D01A00C27ADA /* Helper.swift */,
+				897F79E923FCD95600C16F61 /* SpeechService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				8930A41923E7E0330076D8D9 /* RSSBodyLabel.swift in Sources */,
 				8930A41E23E7E9FD0076D8D9 /* UIViewController+Extension.swift in Sources */,
 				8930A41523E7D3EE0076D8D9 /* RSSButton.swift in Sources */,
+				897F79EA23FCD95600C16F61 /* SpeechService.swift in Sources */,
 				8930A41B23E7E1970076D8D9 /* RSSAlertVC.swift in Sources */,
 				897F79E823F64D8B00C16F61 /* AlbumInfoVC+Extension.swift in Sources */,
 				8930A3FD23E7C2DA0076D8D9 /* SceneDelegate.swift in Sources */,
